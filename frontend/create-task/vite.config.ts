@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: 'navbar',
+      name: 'create_task',
       filename: 'remoteEntry.js',
       exposes: {
         './app': path.resolve(__dirname, 'src', 'app', 'index.tsx')

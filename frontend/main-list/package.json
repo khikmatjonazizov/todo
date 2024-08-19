@@ -10,7 +10,8 @@
     "bs": "pnpm build && pnpm preview"
   },
   "dependencies": {
-    "vue": "^3.4.35"
+    "vue": "^3.4.37",
+    "contract": "workspace:*"
   },
   "devDependencies": {
     "@originjs/vite-plugin-federation": "^1.3.5",

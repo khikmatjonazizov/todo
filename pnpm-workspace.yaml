@@ -1,6 +1,7 @@
 packages:
-  - 'backend/*'
+  - 'backend/'
   - 'frontend/*'
+  - 'shared/*'
 hoistPattern:
   - 'typescript'
   - 'react'

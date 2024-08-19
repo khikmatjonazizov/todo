@@ -12,7 +12,7 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       exposes: {
         './app': path.resolve(__dirname, 'src', 'App.vue'),
-      }
+      },
     })
   ],
   build: {
