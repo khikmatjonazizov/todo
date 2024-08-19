@@ -1,9 +1,15 @@
-import React from "react"
+import React, { useState } from "react"
+import Modal from "../shared/ui/modal"
 
 export const App: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
-      <button>Create task</button>
+      <button onClick={() => setIsOpen(true)}>Create task</button>
+      <Modal
+        isOpen={isOpen}
+        onVisibilityChange={setIsOpen}
+      />
     </div>
   )
 }

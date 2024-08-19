@@ -1,0 +1,14 @@
+.modal__mask {
+  position: absolute;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.modal__content {
+  position: absolute;
+  z-index: 11;
+}
