@@ -1,0 +1,17 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "./index.ts",
+  "exports": {
+    ".": {
+      "import": "./index.ts",
+      "require": "./index.ts"
+    }
+  },
+  "dependencies": {
+    "axios": "^1.7.4"
+  },
+  "devDependencies": {
+    "contract": "workspace:*"
+  }
+}

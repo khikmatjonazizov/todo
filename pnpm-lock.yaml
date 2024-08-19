@@ -50,9 +50,6 @@ importers:
 
   frontend/create-task:
     dependencies:
-      contract:
-        specifier: workspace:*
-        version: link:../../shared/contract
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -75,6 +72,9 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^4.3.1
         version: 4.3.1(vite@5.4.1(@types/node@22.3.0))
+      contract:
+        specifier: workspace:*
+        version: link:../../shared/contract
       eslint:
         specifier: ^9.9.0
         version: 9.9.0
@@ -99,12 +99,12 @@ importers:
 
   frontend/host:
     dependencies:
+      api:
+        specifier: workspace:*
+        version: link:../../shared/api
       axios:
         specifier: ^1.7.4
         version: 1.7.4
-      contract:
-        specifier: workspace:*
-        version: link:../../shared/contract
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -124,6 +124,9 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.0
+      contract:
+        specifier: workspace:*
+        version: link:../../shared/contract
       typescript:
         specifier: ^5.5.3
         version: 5.5.4
@@ -133,9 +136,6 @@ importers:
 
   frontend/main-list:
     dependencies:
-      contract:
-        specifier: workspace:*
-        version: link:../../shared/contract
       vue:
         specifier: ^3.4.37
         version: 3.4.38(typescript@5.5.4)
@@ -146,6 +146,9 @@ importers:
       '@vitejs/plugin-vue':
         specifier: ^5.1.2
         version: 5.1.2(vite@5.4.1(@types/node@22.3.0))(vue@3.4.38(typescript@5.5.4))
+      contract:
+        specifier: workspace:*
+        version: link:../../shared/contract
       typescript:
         specifier: ^5.5.3
         version: 5.5.4
@@ -204,6 +207,16 @@ importers:
       vite:
         specifier: ^5.4.0
         version: 5.4.1(@types/node@22.3.0)
+
+  shared/api:
+    dependencies:
+      axios:
+        specifier: ^1.7.4
+        version: 1.7.4
+    devDependencies:
+      contract:
+        specifier: workspace:*
+        version: link:../contract
 
   shared/contract: {}
 

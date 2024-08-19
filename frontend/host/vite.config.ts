@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import federation from "@originjs/vite-plugin-federation";
+import path from 'path'
 
 export default defineConfig({
   plugins: [
@@ -18,11 +19,19 @@ export default defineConfig({
         'react-dom': {
           requiredVersion: '^18.3.1',
         },
+        'api': {
+          requiredVersion: '1.0.0',
+        }
       }
     })
   ],
   build: {
     target: 'esnext',
     minify: false,
-  }
+  },
+  resolve: {
+    alias: {
+      'api': path.resolve(__dirname, '../../shared/api') // Указываем путь к папке
+    }
+  },
 })

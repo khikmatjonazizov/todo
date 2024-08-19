@@ -9,7 +9,7 @@ import type {
   ITask
 } from 'contract/api';
 
-const tasksApi = {
+export const tasksApi = {
   getAll: async () => {
     const res = await baseInstance.get<GetAllTasksRes>('/tasks');
 
@@ -34,5 +34,3 @@ const tasksApi = {
     return baseInstance.delete<never>(`/tasks/${id}`);
   },
 }
-
-export default tasksApi;

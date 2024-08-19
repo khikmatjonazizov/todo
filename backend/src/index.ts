@@ -47,7 +47,6 @@ app.put('/tasks', (req: Request, res: Response) => {
 app.patch('/tasks', (req: Request, res: Response) => {
   const body: EditTaskReqBody = req.body;
   let editedTask: ITask | null = null;
-  console.log(body);
   tasks = tasks.map(task => {
     if(task.id === body.id) {
       editedTask = body;

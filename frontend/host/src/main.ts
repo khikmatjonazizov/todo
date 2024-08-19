@@ -11,7 +11,7 @@ import { App as CreateTaskApp } from 'create_task/app'
 import { default as MainListApp } from 'main_list/app'
 
 
-import tasksApi from './api/tasks';
+import { tasksApi } from 'api';
 import { MainListProps } from 'contract/main-list';
 
 const getTasks = async () => {
