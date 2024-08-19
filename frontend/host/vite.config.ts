@@ -13,11 +13,14 @@ export default defineConfig({
         'create_task': 'http://localhost:3003/assets/remoteEntry.js',
       },
       shared: {
+        'vue': {
+          requiredVersion: '3.4.38'
+        },
         'react': {
-          requiredVersion: '^18.3.1'
+          requiredVersion: '18.3.1'
         },
         'react-dom': {
-          requiredVersion: '^18.3.1',
+          requiredVersion: '18.3.1',
         },
         'api': {
           requiredVersion: '1.0.0',

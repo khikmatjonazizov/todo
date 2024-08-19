@@ -14,7 +14,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
   }
 
   return (
-    <div>
+    <div className={cns['modal']}>
       <div
         className={cns['modal__mask']}
         onClick={onMaskClick}

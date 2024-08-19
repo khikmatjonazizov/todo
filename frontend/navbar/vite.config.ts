@@ -15,10 +15,10 @@ export default defineConfig({
       },
       shared: {
         'react': {
-          requiredVersion: '^18.3.1'
+          requiredVersion: '18.3.1'
         },
         'react-dom': {
-          requiredVersion: '^18.3.1'
+          requiredVersion: '18.3.1'
         }
       }
     })

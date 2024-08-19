@@ -22,7 +22,6 @@ app.get('/tasks', (req: Request, res: Response) => {
 
 app.get('/tasks/:id', (req: Request, res: Response) => {
   const id = req.params.id;
-  
   const task = tasks.find(task => task.id === id)
   if(task) {
     res.statusCode = 200;
@@ -42,6 +41,7 @@ app.put('/tasks', (req: Request, res: Response) => {
     id,
     ...body,
   });
+  res.sendStatus(204);
 })
 
 app.patch('/tasks', (req: Request, res: Response) => {

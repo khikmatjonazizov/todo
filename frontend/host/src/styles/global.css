@@ -6,3 +6,15 @@ body {
 * {
   box-sizing: border-box;
 }
+
+body .mf:not(:last-child) {
+  border-bottom: 1px solid black;
+}
+
+.react {
+  background-color: aqua;
+}
+
+.vue {
+  background-color: yellowgreen;
+}
