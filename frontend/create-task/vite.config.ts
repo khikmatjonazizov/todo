@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import federation from '@originjs/vite-plugin-federation';
 import path from 'path';
+import packageJson from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,17 +14,7 @@ export default defineConfig({
       exposes: {
         './app': path.resolve(__dirname, 'src', 'app', 'index.tsx')
       },
-      shared: {
-        'react': {
-          requiredVersion: '18.3.1'
-        },
-        'react-dom': {
-          requiredVersion: '18.3.1'
-        },
-        'api': {
-          requiredVersion: '1.0.0',
-        }
-      }
+      shared: packageJson.dependencies,
     })
   ],
   build: {

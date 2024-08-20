@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import federation from '@originjs/vite-plugin-federation'
 import path from 'path'
+import packageJson from './package.json'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,14 +10,14 @@ export default defineConfig({
     vue(),
     federation({
       name: 'main_list',
-      filename: 'remoteEntry.js',
       exposes: {
-        './app': path.resolve(__dirname, 'src', 'App.vue'),
+        './app': path.resolve(__dirname, 'src', 'App.vue')
       },
+      shared: packageJson.dependencies,
     })
   ],
   build: {
-    target: 'esnext',
+    target: 'ESNext',
     minify: false,
-  },
+  }
 })

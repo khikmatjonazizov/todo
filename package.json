@@ -20,6 +20,6 @@
     "node": ">= 20.16.0"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "8.2.2"
   }
 }
