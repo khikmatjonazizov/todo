@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "pnpm concurrently \"pnpm -F backend run dev & pnpm -F host run bs & pnpm -F create-task run bs & pnpm -F main-list run bs & pnpm -F navbar run bs\""
   },
   "workspaces": [
     "backend/*",
@@ -18,5 +18,8 @@
   "packageManager": "pnpm@9.7.0",
   "engines": {
     "node": ">= 20.16.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
