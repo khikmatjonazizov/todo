@@ -31,6 +31,7 @@ export const tasksApi = {
     return res.data
   },
   delete: async (id: ITask['id']) => {
-    return baseInstance.delete<never>(`/tasks/${id}`);
+    await baseInstance.delete(`/tasks/${id}`);
+    return id;
   },
 }

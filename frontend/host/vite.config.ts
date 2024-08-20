@@ -24,7 +24,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      'api': path.resolve(__dirname, '../../shared/api') // Указываем путь к папке
+      'api': path.resolve(__dirname, '../../shared/api')
     }
   },
 })
