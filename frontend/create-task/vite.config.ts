@@ -14,6 +14,9 @@ export default defineConfig({
       exposes: {
         './app': path.resolve(__dirname, 'src', 'app', 'index.tsx')
       },
+      remotes: {
+        'host': 'http://localhost:3000/assets/remoteEntry.js'
+      },
       shared: packageJson.dependencies,
     })
   ],

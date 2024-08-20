@@ -37,11 +37,11 @@ app.put('/tasks', (req: Request, res: Response) => {
   const id = v4();
   const body: CreateTaskReqBody = req.body;
 
-  tasks.push({
+  tasks.unshift({
     id,
     ...body,
   });
-  res.sendStatus(204);
+  res.json({id, ...body})
 })
 
 app.patch('/tasks', (req: Request, res: Response) => {

@@ -15,6 +15,9 @@ export default defineConfig({
         'main_list': 'http://localhost:3002/assets/remoteEntry.js',
         'create_task': 'http://localhost:3003/assets/remoteEntry.js',
       },
+      exposes: {
+        './tasks': path.resolve(__dirname, 'src', 'store', 'tasks.ts')
+      },
       shared: packageJson.dependencies
     })
   ],

@@ -1,25 +1,22 @@
 <script setup lang="ts">
 import { ITask } from 'contract/api';
-import { MainListProps } from 'contract/main-list';
 
-type TaskProps = {
-  task: ITask
-} & Omit<MainListProps, 'tasks'>
-const { task, handleEditTask, handleDeleteTask } = defineProps<TaskProps>();
+// @ts-ignore
+import { editTaskFx, deleteTaskFx } from 'host/tasks'
+
+const { task } = defineProps<{task: ITask}>();
 
 const onCheck = async (event: Event, task: ITask) => {
-  event.preventDefault();
   const target = event.target as HTMLInputElement;
 
-  await handleEditTask({
+  await editTaskFx({
     ...task,
     done: target.checked,
   });
 };
 
 const onDelete = async (task: ITask) => {
-  await handleDeleteTask(task.id);
-  console.log('deleted');
+  await deleteTaskFx(task.id);
 };
 
 </script>
