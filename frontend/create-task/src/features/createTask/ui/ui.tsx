@@ -1,7 +1,9 @@
 import React, { ComponentProps, useState } from "react";
 import Modal from "../../../shared/ui/modal";
 import cns from './ui.module.css';
-import { tasksApi } from 'api'
+
+// @ts-expect-error no type
+import { createTaskFx } from 'host/tasks'
 
 export const CreateTask: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,10 +23,13 @@ export const CreateTask: React.FC = () => {
 
   const handleSubmit: ComponentProps<'form'>['onSubmit'] = (event) => {
     event.preventDefault();
-    tasksApi.create({
+    createTaskFx({
       desc: taskDesc,
       done: taskDone,
     })
+    setIsOpen(false)
+    setTaskDesc('')
+    setTaskDone(false)
   }
 
   return (

@@ -13,6 +13,9 @@ export default defineConfig({
       exposes: {
         './app': path.resolve(__dirname, 'src', 'App.vue')
       },
+      remotes: {
+        'host': 'http://localhost:3000/assets/remoteEntry.js'
+      },
       shared: packageJson.dependencies,
     })
   ],

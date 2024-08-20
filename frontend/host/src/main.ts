@@ -9,21 +9,13 @@ import { App as NavBarApp } from 'navbar/app'
 import { App as CreateTaskApp } from 'create_task/app'
 // @ts-ignore
 import MainListApp from 'main_list/app'
-import { tasksApi } from 'api';
+import { getTasksFx } from './store/tasks';
 
 const mount = async () => {
-  const tasks = await tasksApi.getAll();
-  console.log(tasks);
+  getTasksFx();
   const mainListContainer = document.getElementById('main-list')
   if (mainListContainer) {
-    Vue.createApp(
-      MainListApp,
-      {
-        tasks,
-        handleEditTask: tasksApi.edit,
-        handleDeleteTask: tasksApi.delete
-      }
-    ).mount(mainListContainer)
+    Vue.createApp(MainListApp).mount(mainListContainer)
   }
   
   const navbarContainer = document.getElementById('navbar')

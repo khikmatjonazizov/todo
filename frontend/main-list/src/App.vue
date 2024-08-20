@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { MainListProps } from 'contract/main-list'
+import { useUnit } from 'effector-vue/composition';
 import Task from './components/Task.vue';
 
-const {
-  tasks,
-  handleDeleteTask,
-  handleEditTask
-} = defineProps<MainListProps>()
+// @ts-ignore
+import { $tasks } from 'host/tasks'
+
+const tasks = useUnit($tasks);
 </script>
 
 <template>
@@ -15,8 +14,6 @@ const {
       v-for="task in tasks"
       :key="task.id"
       :task="task"
-      :handle-delete-task="handleDeleteTask"
-      :handle-edit-task="handleEditTask"
     />
   </ul>
 </template>
