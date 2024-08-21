@@ -4,6 +4,8 @@ import cns from './ui.module.css';
 
 // @ts-expect-error no type
 import { createTaskFx } from 'host/tasks'
+// @ts-expect-error no type
+import eventBus from 'host/event-bus'
 
 export const CreateTask: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,12 +23,13 @@ export const CreateTask: React.FC = () => {
     setTaskDone(target.checked)
   }
 
-  const handleSubmit: ComponentProps<'form'>['onSubmit'] = (event) => {
+  const handleSubmit: ComponentProps<'form'>['onSubmit'] = async (event) => {
     event.preventDefault();
-    createTaskFx({
+    const task = await createTaskFx({
       desc: taskDesc,
       done: taskDone,
     })
+    eventBus.emit('create', task)
     setIsOpen(false)
     setTaskDesc('')
     setTaskDone(false)

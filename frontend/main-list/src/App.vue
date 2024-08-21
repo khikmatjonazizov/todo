@@ -4,8 +4,13 @@ import Task from './components/Task.vue';
 
 // @ts-ignore
 import { $tasks } from 'host/tasks'
+// @ts-ignore
+import eventBus from 'host/event-bus'
+import { ITask } from 'contract/api';
 
 const tasks = useUnit($tasks);
+
+eventBus.on('create', (task: ITask) => console.log(task))
 </script>
 
 <template>

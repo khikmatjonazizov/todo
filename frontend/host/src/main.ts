@@ -13,6 +13,7 @@ import { getTasksFx } from './store/tasks';
 
 const mount = async () => {
   getTasksFx();
+
   const mainListContainer = document.getElementById('main-list')
   if (mainListContainer) {
     Vue.createApp(MainListApp).mount(mainListContainer)
