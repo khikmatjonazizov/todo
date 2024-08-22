@@ -1,22 +1,24 @@
 <script setup lang="ts">
 import { ITask } from 'contract/api';
+import { tasksApi } from 'api'
 
-// @ts-ignore
-import { editTaskFx, deleteTaskFx } from 'host/tasks'
+import eventBus from 'host/event-bus'
 
 const { task } = defineProps<{task: ITask}>();
 
 const onCheck = async (event: Event, task: ITask) => {
   const target = event.target as HTMLInputElement;
 
-  await editTaskFx({
+  const editedTask = await tasksApi.edit({
     ...task,
     done: target.checked,
   });
+  eventBus.emit('edit-task', editedTask)
 };
 
 const onDelete = async (task: ITask) => {
-  await deleteTaskFx(task.id);
+  await tasksApi.delete(task.id);
+  eventBus.emit('delete-task', task.id)
 };
 
 </script>

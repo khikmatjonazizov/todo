@@ -1,36 +1,19 @@
-import React, { ComponentProps, useState } from "react";
+import React from "react";
 import Modal from "../../../shared/ui/modal";
 import cns from './ui.module.css';
+import { useCreateTask } from "../model";
 
-// @ts-expect-error no type
-import { createTaskFx } from 'host/tasks'
 
 export const CreateTask: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const [taskDesc, setTaskDesc] = useState('');
-  const [taskDone, setTaskDone] = useState(false);
-
-  const handleTaskDesc: ComponentProps<'input'>['onChange'] = (event) => {
-    const target = event.target;
-    setTaskDesc(target.value);
-  }
-
-  const handleTaskDone: ComponentProps<'input'>['onChange'] = (event) => {
-    const target = event.target;
-    setTaskDone(target.checked)
-  }
-
-  const handleSubmit: ComponentProps<'form'>['onSubmit'] = (event) => {
-    event.preventDefault();
-    createTaskFx({
-      desc: taskDesc,
-      done: taskDone,
-    })
-    setIsOpen(false)
-    setTaskDesc('')
-    setTaskDone(false)
-  }
+  const {
+    isOpen,
+    taskDesc,
+    taskDone,
+    setIsOpen,
+    handleSubmit,
+    handleTaskDesc,
+    handleTaskDone,
+  } = useCreateTask();
 
   return (
     <>

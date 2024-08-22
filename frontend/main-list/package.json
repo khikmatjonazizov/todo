@@ -11,8 +11,6 @@
   },
   "dependencies": {
     "api": "workspace:*",
-    "effector": "^23.2.2",
-    "effector-vue": "^23.0.0",
     "vue": "3.4.37"
   },
   "devDependencies": {
