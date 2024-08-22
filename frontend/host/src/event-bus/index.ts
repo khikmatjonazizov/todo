@@ -1,16 +1,17 @@
+import { EventBusAction, EventBusEvents, EventBusPayloads } from 'contract/event-bus'
 class EventBus {
-  events: Record<string, ((...props: any) => void)[]> = {}
+  private events: Partial<{ [K in EventBusEvents]: EventBusAction<EventBusPayloads[K]>[] }> = {}
 
-  on(event: string, callback: (...props: any) => void) {
-    if(!this.events[event]) {
+  on<K extends EventBusEvents>(event: K, callback: EventBusAction<EventBusPayloads[K]>) {
+    if (!this.events[event]) {
       this.events[event] = []
     }
-    this.events[event].push(callback)
+    this.events[event].push(callback as EventBusAction<any>)
   }
 
-  emit(event: string, props: any) {
-    if(this.events[event]) {
-      this.events[event].forEach(callback => callback(props))
+  emit<K extends EventBusEvents>(event: K, props: EventBusPayloads[K]) {
+    if (this.events[event]) {
+      this.events[event]!.forEach(callback => callback(props))
     }
   }
 }

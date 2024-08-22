@@ -2,25 +2,24 @@
 import { ref } from 'vue'
 import Task from './components/Task.vue';
 
-// @ts-ignore
 import eventBus from 'host/event-bus'
 import { ITask } from 'contract/api';
 
 const tasks = ref<ITask[]>([])
 
-eventBus.on('get-tasks', (newTasks: ITask[]) => {
+eventBus.on('get-tasks', (newTasks) => {
   tasks.value = newTasks
 })
 
-eventBus.on('create-task', (task: ITask) => {
+eventBus.on('create-task', (task) => {
   tasks.value.unshift(task);
 })
 
-eventBus.on('delete-task', (id: ITask['id']) => {
+eventBus.on('delete-task', (id) => {
   tasks.value = tasks.value.filter(task => task.id !== id)
 })
 
-eventBus.on('edit-task', (editedTask: ITask) => {
+eventBus.on('edit-task', (editedTask) => {
   tasks.value = tasks.value.map(task => task.id === editedTask.id ? editedTask : task)
 })
 </script>

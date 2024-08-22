@@ -9,6 +9,7 @@ import { App as NavBarApp } from 'navbar/app'
 import { App as CreateTaskApp } from 'create_task/app'
 // @ts-ignore
 import MainListApp from 'main_list/app'
+
 import { tasksApi } from 'api';
 import eventBus from './event-bus';
 

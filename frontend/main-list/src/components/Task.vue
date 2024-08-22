@@ -2,7 +2,6 @@
 import { ITask } from 'contract/api';
 import { tasksApi } from 'api'
 
-// @ts-ignore
 import eventBus from 'host/event-bus'
 
 const { task } = defineProps<{task: ITask}>();

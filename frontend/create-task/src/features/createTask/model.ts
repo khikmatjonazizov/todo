@@ -1,7 +1,6 @@
 import { ComponentProps, useState } from "react";
 import { tasksApi } from 'api'
 
-// @ts-expect-error no type
 import eventBus from 'host/event-bus'
 
 export const useCreateTask = () => {
