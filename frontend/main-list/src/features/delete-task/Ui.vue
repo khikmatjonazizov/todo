@@ -2,10 +2,10 @@
 import { ITask } from 'contract/api';
 import { deleteTaskFx } from 'host/store/tasks';
 
-const { task } = defineProps<{task: ITask}>();
+const props = defineProps<{task: ITask}>();
 
 const onDelete = async () => {
-  await deleteTaskFx(task.id);
+  await deleteTaskFx(props.task.id);
 }
 </script>
 <template>

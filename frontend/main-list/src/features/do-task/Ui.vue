@@ -3,12 +3,12 @@
 import { ITask } from 'contract/api';
 import { editTaskFx } from 'host/store/tasks'
 
-const { task } = defineProps<{task: ITask}>();
+const props = defineProps<{task: ITask}>();
 
 const onCheck = async (event: Event) => {
   const target = event.target as HTMLInputElement;
   await editTaskFx({
-    ...task,
+    ...props.task,
     done: target.checked,
   });
 };
@@ -17,8 +17,7 @@ const onCheck = async (event: Event) => {
 <template>
   <input
     type="checkbox"
-    :checked="task.done"
+    v-model="props.task.done"
     @change="onCheck"
-    :disabled="false"
   />
 </template>
