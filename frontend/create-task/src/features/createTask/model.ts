@@ -1,7 +1,5 @@
 import { ComponentProps, useState } from "react";
-import { tasksApi } from 'api'
-
-import eventBus from 'host/event-bus'
+import { createTaskFx } from 'host/store/tasks'
 
 export const useCreateTask = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,11 +19,10 @@ export const useCreateTask = () => {
 
   const handleSubmit: ComponentProps<'form'>['onSubmit'] = async (event) => {
     event.preventDefault();
-    const task = await tasksApi.create({
+    await createTaskFx({
       desc: taskDesc,
       done: taskDone,
     })
-    eventBus.emit('create-task', task)
     setIsOpen(false)
     setTaskDesc('')
     setTaskDone(false)

@@ -23,7 +23,7 @@
     /* Remote modules */
     "baseUrl": ".",
     "paths": {
-      "host/event-bus": ["src/module.d.ts"]
+      "host/store/tasks": ["src/module.d.ts"]
     }
   },
   "include": ["src"]

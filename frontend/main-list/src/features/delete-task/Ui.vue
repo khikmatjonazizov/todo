@@ -1,13 +1,11 @@
 <script lang="ts" setup>
-import { tasksApi } from 'api';
 import { ITask } from 'contract/api';
-import eventBus from 'host/event-bus';
+import { deleteTaskFx } from 'host/store/tasks';
 
 const { task } = defineProps<{task: ITask}>();
 
 const onDelete = async () => {
-  await tasksApi.delete(task.id);
-  eventBus.emit('delete-task', task.id);
+  await deleteTaskFx(task.id);
 }
 </script>
 <template>

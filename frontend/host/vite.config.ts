@@ -16,7 +16,7 @@ export default defineConfig({
         'create_task': 'http://localhost:3003/assets/remoteEntry.js',
       },
       exposes: {
-        './event-bus': path.resolve(__dirname, 'src', 'event-bus', 'index.ts')
+        './store/tasks': path.resolve(__dirname, 'src', 'store', 'tasks.ts')
       },
       shared: packageJson.dependencies
     })

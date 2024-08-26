@@ -1,27 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useUnit } from 'effector-vue/composition';
 import Task from './components/Task.vue';
+import { $tasks } from 'host/store/tasks';
 
-import eventBus from 'host/event-bus'
-import { ITask } from 'contract/api';
-
-const tasks = ref<ITask[]>([])
-
-eventBus.on('get-tasks', (newTasks) => {
-  tasks.value = newTasks
-})
-
-eventBus.on('create-task', (task) => {
-  tasks.value.unshift(task);
-})
-
-eventBus.on('delete-task', (id) => {
-  tasks.value = tasks.value.filter(task => task.id !== id)
-})
-
-eventBus.on('edit-task', (editedTask) => {
-  tasks.value = tasks.value.map(task => task.id === editedTask.id ? editedTask : task)
-})
+const tasks = useUnit($tasks);
 </script>
 
 <template>

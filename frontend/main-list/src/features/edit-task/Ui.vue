@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { tasksApi } from 'api';
 import { ITask } from 'contract/api';
-import eventBus from 'host/event-bus';
+import { editTaskFx } from 'host/store/tasks';
 import { ref } from 'vue';
 
 const { task } = defineProps<{task: ITask}>();
@@ -24,12 +23,11 @@ const handleDesc = (event: Event) => {
 
 const handleSubmit = async (event: Event) => {
   event.preventDefault();
-  const editedTask = await tasksApi.edit({
+  await editTaskFx({
     id: task.id,
     done: task.done,
     desc: desc.value,
   })
-  eventBus.emit('edit-task', editedTask)
   handleCloseModal();
 }
 
