@@ -4,12 +4,12 @@ import { tasksApi } from 'api';
 import { ITask } from 'contract/api';
 import eventBus from 'host/event-bus';
 
-const { task } = defineProps<{task: ITask}>();
+const props = defineProps<{task: ITask}>();
 
 const onCheck = async (event: Event) => {
   const target = event.target as HTMLInputElement;
   const editedTask = await tasksApi.edit({
-    ...task,
+    ...props.task,
     done: target.checked,
   });
   eventBus.emit('edit-task', editedTask)
@@ -19,8 +19,7 @@ const onCheck = async (event: Event) => {
 <template>
   <input
     type="checkbox"
-    :checked="task.done"
+    v-model="props.task.done"
     @change="onCheck"
-    :disabled="false"
   />
 </template>
