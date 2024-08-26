@@ -4,20 +4,19 @@ import DeleteTask from '../features/delete-task/Ui.vue';
 import DoTask from '../features/do-task/Ui.vue';
 import EditTask from '../features/edit-task/Ui.vue'
 
-const { task } = defineProps<{task: ITask}>();
-
+const props = defineProps<{task: ITask}>();
 </script>
 <template>
   <li class="main-list__task">
     <div class="main-list__task__content">
-      <DoTask :task="task" />
+      <DoTask :task="props.task" />
       <p class="main-list__task__desc">
-        {{ task.desc }}
+        {{ props.task.desc }}
       </p>
     </div>
     <div class="main-list__task__actions">
-      <EditTask :task="task" />
-      <DeleteTask :task="task" />
+      <EditTask :task="props.task" />
+      <DeleteTask :task="props.task" />
     </div>
   </li>
 </template>

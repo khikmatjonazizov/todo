@@ -3,11 +3,11 @@ import { tasksApi } from 'api';
 import { ITask } from 'contract/api';
 import eventBus from 'host/event-bus';
 
-const { task } = defineProps<{task: ITask}>();
+const props = defineProps<{task: ITask}>();
 
 const onDelete = async () => {
-  await tasksApi.delete(task.id);
-  eventBus.emit('delete-task', task.id);
+  await tasksApi.delete(props.task.id);
+  eventBus.emit('delete-task', props.task.id);
 }
 </script>
 <template>

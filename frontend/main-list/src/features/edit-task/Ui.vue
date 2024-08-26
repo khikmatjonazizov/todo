@@ -4,44 +4,39 @@ import { ITask } from 'contract/api';
 import eventBus from 'host/event-bus';
 import { ref } from 'vue';
 
-const { task } = defineProps<{task: ITask}>();
+const props = defineProps<{task: ITask}>();
 
 const isOpen = ref(false);
-const desc = ref(task.desc);
+const desc = ref(props.task.desc);
 
 const handleOpenModal = () => {
+  desc.value = props.task.desc;
   isOpen.value = true;
 }
 
 const handleCloseModal = () => {
-  isOpen.value = false
-}
-
-const handleDesc = (event: Event) => {
-  const target = event.target as HTMLInputElement;
-  desc.value = target.value;
+  isOpen.value = false;
 }
 
 const handleSubmit = async (event: Event) => {
   event.preventDefault();
   const editedTask = await tasksApi.edit({
-    id: task.id,
-    done: task.done,
+    id: props.task.id,
+    done: props.task.done,
     desc: desc.value,
   })
-  eventBus.emit('edit-task', editedTask)
+  eventBus.emit('edit-task', editedTask);
   handleCloseModal();
 }
-
 </script>
 
 <template>
   <button @click="handleOpenModal">Edit</button>
   <div v-if="isOpen" class="edit-task__modal">
-    <div @click="handleCloseModal" class="edit-task__mask" ></div>
+    <div @click="handleCloseModal" class="edit-task__mask"></div>
     <div class="edit-task__content">
       <form @submit="handleSubmit" class="edit-task__form">
-        <input class="edit-task__input" :value="desc" @change="handleDesc" />
+        <input class="edit-task__input" v-model="desc" />
         <button class="edit-task__submit">Edit</button>
       </form>
     </div>
