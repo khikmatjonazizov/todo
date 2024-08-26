@@ -1,44 +1,23 @@
 <script setup lang="ts">
 import { ITask } from 'contract/api';
-import { tasksApi } from 'api'
-
-import eventBus from 'host/event-bus'
+import DeleteTask from '../features/delete-task/Ui.vue';
+import DoTask from '../features/do-task/Ui.vue';
+import EditTask from '../features/edit-task/Ui.vue'
 
 const { task } = defineProps<{task: ITask}>();
-
-const onCheck = async (event: Event, task: ITask) => {
-  const target = event.target as HTMLInputElement;
-
-  const editedTask = await tasksApi.edit({
-    ...task,
-    done: target.checked,
-  });
-  eventBus.emit('edit-task', editedTask)
-};
-
-const onDelete = async (task: ITask) => {
-  await tasksApi.delete(task.id);
-  eventBus.emit('delete-task', task.id)
-};
 
 </script>
 <template>
   <li class="main-list__task">
     <div class="main-list__task__content">
-      <input
-        type="checkbox"
-        :checked="task.done"
-        @change="(event) => onCheck(event, task)"
-        :disabled="false"
-      />
+      <DoTask :task="task" />
       <p class="main-list__task__desc">
         {{ task.desc }}
       </p>
     </div>
     <div class="main-list__task__actions">
-      <button @click="() => onDelete(task)">
-        delete
-      </button>
+      <EditTask :task="task" />
+      <DeleteTask :task="task" />
     </div>
   </li>
 </template>
