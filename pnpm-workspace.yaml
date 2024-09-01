@@ -1,9 +1,0 @@
-packages:
-  - 'backend/'
-  - 'frontend/*'
-  - 'shared/*'
-hoistPattern:
-  - 'typescript'
-  - 'react'
-  - 'vue'
-  - 'vite'

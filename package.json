@@ -3,23 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "private": true,
   "scripts": {
-    "dev": "pnpm concurrently \"pnpm -F backend run dev & pnpm -F host run bs & pnpm -F create-task run bs & pnpm -F main-list run bs & pnpm -F navbar run bs\""
+    "install:sync": "echo '---- BACKEND' && cd ./backend && pnpm i && cd ../ && echo '---- CREATE-TASK' && cd ./create-task && pnpm i && cd ../ && echo '---- NAVBAR' && cd ./navbar && pnpm i && cd ../ && echo '---- ONE-TASK' && cd ./one-task && pnpm i && cd ../ && echo '---- ROOT' && cd ./root && pnpm i && cd ../ && echo '---- TASKS-LIST' && cd ./tasks-list && pnpm i && cd ../ && echo '---- UTILS' && cd ./utils && pnpm i && cd ../",
+    "install:async": "pnpm concurrently \"cd ./backend && pnpm i\" \"cd ./create-task && pnpm i\" \"cd ./navbar && pnpm i\" \"cd ./one-task && pnpm i\" \"cd ./root && pnpm i\" \"cd ./tasks-list && pnpm i\" \"cd ./utils && pnpm i\"",
+    "dev": "pnpm concurrently \"cd ./backend && pnpm dev\" \"cd ./create-task && pnpm start:standalone\" \"cd ./navbar && pnpm start:standalone\" \"cd ./one-task && pnpm serve:standalone\" \"cd ./root && pnpm start\" \"cd ./tasks-list && pnpm serve:standalone\" \"cd ./utils && pnpm start:standalone\""
   },
-  "workspaces": [
-    "backend/*",
-    "frontend/*",
-    "shared/*"
-  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@9.7.0",
-  "engines": {
-    "node": ">= 20.16.0"
-  },
   "devDependencies": {
-    "concurrently": "8.2.2"
+    "concurrently": "^8.2.2"
   }
 }
