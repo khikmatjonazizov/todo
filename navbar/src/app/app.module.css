@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  margin: 0;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__nav-link {
+  padding: 5px;
+  text-decoration: none;
+}
+
+.header__nav-link[data-active="true"] {
+  text-decoration: underline;
+}
+

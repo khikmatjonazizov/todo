@@ -1,0 +1,12 @@
+<single-spa-router>
+  <div class="root__container">
+    <application name="@todo/navbar"></application>
+    <route default>
+      <application name="@todo/create-task"></application>
+      <application name="@todo/tasks-list"></application>
+    </route>
+    <route path="task/:id">
+      <application name="@todo/one-task"></application>
+    </route>
+  </div>
+</single-spa-router>
