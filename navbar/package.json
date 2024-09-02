@@ -52,6 +52,7 @@
     "@types/react-dom": "18.3.0",
     "@types/systemjs": "6.13.5",
     "@types/webpack-env": "1.18.5",
+    "atomic-router-react": "^0.10.0",
     "effector-react": "23.2.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",

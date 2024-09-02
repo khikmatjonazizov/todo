@@ -23,6 +23,9 @@ importers:
       '@types/webpack-env':
         specifier: 1.18.5
         version: 1.18.5
+      atomic-router-react:
+        specifier: ^0.10.0
+        version: 0.10.0(atomic-router@0.10.1(effector@23.2.2)(history@5.3.0))(effector-react@23.2.1(effector@23.2.2)(react@18.3.1))(effector@23.2.2)(react@18.3.1)
       effector-react:
         specifier: 23.2.1
         version: 23.2.1(effector@23.2.2)(react@18.3.1)
@@ -1323,6 +1326,22 @@ packages:
   ast-types-flow@0.0.8:
     resolution: {integrity: sha512-OH/2E5Fg20h2aPrbe+QL8JZQFko0YZaF+j4mnQ7BGhfavO7OpSLa8a0y9sBwomHdSbkhTS8TQNayBfnW5DwbvQ==}
 
+  atomic-router-react@0.10.0:
+    resolution: {integrity: sha512-9EM3n1eLDbuYQjWijiHMjA2l5UPvM2pt4O7Z0TUupuDz6KF00HNMd/iBIUq7uCyDwmyctgqqR5bHIeqRlXVUAQ==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      atomic-router: ^0.10.0
+      effector: ^22.8.8 || ^23
+      effector-react: ^22.1.0 || ^23
+      react: ^17 || ^18
+
+  atomic-router@0.10.1:
+    resolution: {integrity: sha512-u7XV+gOBgIAO84T58eXBkL3J4ARaHsltW7GuG01307BjvFfFGdE0yAVGm/JmMhBbIGhwTLHkalPbf8mudJIV3A==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      effector: ^22.8.8 || ^23
+      history: ^5.3.0
+
   available-typed-arrays@1.0.7:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
@@ -1503,6 +1522,10 @@ packages:
 
   clone-deep@4.0.1:
     resolution: {integrity: sha512-neHB9xuzh/wk0dIHweyAXv2aPGZIVk3pLMe+/RNzINf17fe0OG96QroktYAUm7SM1PBnzTabaLboqqxDyMU+SQ==}
+    engines: {node: '>=6'}
+
+  clsx@1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
     engines: {node: '>=6'}
 
   co@4.6.0:
@@ -2239,6 +2262,9 @@ packages:
   he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
+
+  history@5.3.0:
+    resolution: {integrity: sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ==}
 
   hpack.js@2.1.6:
     resolution: {integrity: sha512-zJxVehUdMGIKsRaNt7apO2Gqp0BdqW5yaiGHXXmbpvxgBYVZnAql+BJb4RO5ad2MgpbZKn5G6nMnegrH1FcNYQ==}
@@ -3071,6 +3097,9 @@ packages:
 
   path-to-regexp@0.1.7:
     resolution: {integrity: sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ==}
+
+  path-to-regexp@6.2.2:
+    resolution: {integrity: sha512-GQX3SSMokngb36+whdpRXE+3f9V8UzyAorlYvOGx87ufGHehNTn5lCxrKtLyZ4Yl/wEKnNnr98ZzOwwDZV5ogw==}
 
   path-type@4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
@@ -5530,6 +5559,20 @@ snapshots:
 
   ast-types-flow@0.0.8: {}
 
+  atomic-router-react@0.10.0(atomic-router@0.10.1(effector@23.2.2)(history@5.3.0))(effector-react@23.2.1(effector@23.2.2)(react@18.3.1))(effector@23.2.2)(react@18.3.1):
+    dependencies:
+      atomic-router: 0.10.1(effector@23.2.2)(history@5.3.0)
+      clsx: 1.2.1
+      effector: 23.2.2
+      effector-react: 23.2.1(effector@23.2.2)(react@18.3.1)
+      react: 18.3.1
+
+  atomic-router@0.10.1(effector@23.2.2)(history@5.3.0):
+    dependencies:
+      effector: 23.2.2
+      history: 5.3.0
+      path-to-regexp: 6.2.2
+
   available-typed-arrays@1.0.7:
     dependencies:
       possible-typed-array-names: 1.0.0
@@ -5768,6 +5811,8 @@ snapshots:
       is-plain-object: 2.0.4
       kind-of: 6.0.3
       shallow-clone: 3.0.1
+
+  clsx@1.2.1: {}
 
   co@4.6.0: {}
 
@@ -6614,6 +6659,10 @@ snapshots:
       function-bind: 1.1.2
 
   he@1.2.0: {}
+
+  history@5.3.0:
+    dependencies:
+      '@babel/runtime': 7.25.4
 
   hpack.js@2.1.6:
     dependencies:
@@ -7589,6 +7638,8 @@ snapshots:
       minipass: 7.1.2
 
   path-to-regexp@0.1.7: {}
+
+  path-to-regexp@6.2.2: {}
 
   path-type@4.0.0: {}
 
