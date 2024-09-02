@@ -21,6 +21,6 @@ const onCheck = async (event: Event) => {
     id="done-task"
     type="checkbox"
     :checked="props.task.done"
-    @change="onCheck"
+    @click="onCheck"
   />
 </template>

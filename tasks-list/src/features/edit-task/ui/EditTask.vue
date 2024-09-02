@@ -38,24 +38,24 @@ const onMaskClick = () => {
 </script>
 
 <template>
-  <div id="edit-task">
-    <button @click="handleOpenModal">Edit</button>
-    <div v-if="isOpen" class="edit-task__modal">
+  <button @click="handleOpenModal" id="edit-task">Edit</button>
+  <Teleport to="body" v-if="isOpen">
+    <div class="edit-task__modal">
       <div @click="onMaskClick" class="edit-task__mask"></div>
       <div class="edit-task__content">
         <form @submit="handleSubmit" class="edit-task__form">
           <input class="edit-task__input" v-model="desc" />
-          <button class="edit-task__submit">Edit</button>
+          <button class="edit-task__submit" type="submit">Edit</button>
         </form>
       </div>
     </div>
-  </div>
+  </Teleport>
 </template>
 
 <style scoped>
 .edit-task__modal {
   z-index: 10;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100dvw;

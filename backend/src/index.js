@@ -16,13 +16,13 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/tasks', async (req, res) => {
-  await wait(100)
+  await wait(200)
   res.statusCode = 200;
   res.json(tasks)
 })
 
 app.get('/tasks/:id', async (req, res) => {
-  await wait(100)
+  await wait(200)
   const id = req.params.id;
   const task = tasks.find(task => task.id === id)
   if(task) {
@@ -36,7 +36,7 @@ app.get('/tasks/:id', async (req, res) => {
 })
 
 app.put('/tasks', async (req, res) => {
-  await wait(100)
+  await wait(200)
   const id = v4();
   const body = req.body;
 
@@ -48,7 +48,7 @@ app.put('/tasks', async (req, res) => {
 })
 
 app.patch('/tasks', async (req, res) => {
-  await wait(100)
+  await wait(200)
   const body = req.body;
   let editedTask = null;
   tasks = tasks.map(task => {
@@ -71,7 +71,7 @@ app.patch('/tasks', async (req, res) => {
 })
 
 app.delete('/tasks/:id', async (req, res) => {
-  await wait(100)
+  await wait(200)
   const id = req.params.id;
   let deletedTask = null;
 
