@@ -11,17 +11,17 @@ export const tasksApi = {
 
     return res.data;
   },
-  edit: async (body) => {
+  edit: async (body: any) => {
     const res = await baseInstance.patch('/tasks', body);
 
     return res.data
   },
-  create: async (body) => {
+  create: async (body: any) => {
     const res = await baseInstance.put('/tasks', body)
 
     return res.data
   },
-  delete: async (id) => {
+  delete: async (id: any) => {
     await baseInstance.delete(`/tasks/${id}`);
     return id;
   },

@@ -1,7 +1,7 @@
 import { ComponentProps, useState } from "react";
 
 // @ts-expect-error no type
-import { tasksApi, eventBus } from 'utils'
+import { tasksApi, eventBus } from '@todo/utils'
 
 export const useCreateTask = () => {
   const [isOpen, setIsOpen] = useState(false);

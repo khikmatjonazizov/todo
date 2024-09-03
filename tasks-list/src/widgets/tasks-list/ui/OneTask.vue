@@ -5,7 +5,7 @@ import EditTask from '@/features/edit-task/ui/EditTask.vue';
 import DeleteTask from '@/features/delete-task/ui/DeleteTask.vue';
 
 // @ts-expect-error no type
-import { routes } from 'utils';
+import { routes } from '@todo/utils';
 
 const props = defineProps<{task: any}>()
 
@@ -30,7 +30,7 @@ const onClick = (event: Event) => {
     <a
       :href="`/tasks/${props.task.id}`"
       @click="onClick"
-      class="tasks-list__task-link"
+      class="tasks-list__task-link"d
     >
       <div class="tasks-list__task-content">
         <DoTask :task="props.task" />

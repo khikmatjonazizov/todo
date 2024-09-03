@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // @ts-expect-error no type
-import { eventBus } from 'utils';
+import { eventBus } from '@todo/utils';
 import { ref } from 'vue';
 import OneTask from './OneTask.vue';
 const tasks = ref<any[]>([])

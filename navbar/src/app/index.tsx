@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import s from './app.module.css';
 import { useUnit } from 'effector-react'
 import { Link, RouterProvider } from "atomic-router-react";
 
 // @ts-expect-error no type
-import { routes, router } from 'utils'
+import { routes, router } from '@todo/utils'
 
 export const App: React.FC = () => {
   const [homeIsOpen] = useUnit([routes.home.$isOpened])

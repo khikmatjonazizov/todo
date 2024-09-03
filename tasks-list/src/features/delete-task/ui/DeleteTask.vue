@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 // @ts-expect-error no type
-import { tasksApi, eventBus } from 'utils';
+import { tasksApi, eventBus } from '@todo/utils';
 import { defineProps } from 'vue'
 
 const props = defineProps<{task: any}>();
