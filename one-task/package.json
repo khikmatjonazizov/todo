@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "start:standalone": "vue-cli-service serve --mode standalone --port 9005"
+    "dev": "vite --port 9005",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview --port 9005"
   },
   "dependencies": {
     "core-js": "3.38.1",
@@ -17,6 +17,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "5.4.0",
     "@typescript-eslint/parser": "5.4.0",
+    "@vitejs/plugin-vue": "^5.1.3",
     "@vue/cli-plugin-babel": "5.0.8",
     "@vue/cli-plugin-eslint": "5.0.8",
     "@vue/cli-plugin-typescript": "5.0.8",
@@ -25,6 +26,8 @@
     "eslint": "7.32.0",
     "eslint-plugin-vue": "8.0.3",
     "typescript": "5.5.4",
+    "vite": "^5.4.3",
+    "vite-plugin-externalize-dependencies": "^1.0.1",
     "vue-cli-plugin-single-spa": "3.3.0"
   }
 }

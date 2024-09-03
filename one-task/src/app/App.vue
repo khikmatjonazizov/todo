@@ -4,7 +4,7 @@ import { useStore, useUnit } from 'effector-vue/composition'
 import EditTask from '@/features/edit-task/ui/EditTask.vue';
 
 // @ts-expect-error no type
-import { tasksApi, routes } from 'utils'
+import { tasksApi, routes } from '@todo/utils'
 
 const task = ref<any>(null)
 const params = useStore<any>(routes.task.$params)

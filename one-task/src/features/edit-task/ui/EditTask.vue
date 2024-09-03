@@ -2,19 +2,19 @@
 import { ref, defineProps } from 'vue';
 
 // @ts-expect-error no type
-import { tasksApi, eventBus } from 'utils'
+import { tasksApi, eventBus } from '@todo/utils'
 
 const props = defineProps<{task: any}>()
 const done = ref(props.task.done);
 const desc = ref(props.task.desc);
 const onSubmit = async (event: Event) => {
   event.preventDefault();
-  const editedTask = await tasksApi.editTask({
+  const editedTask = await tasksApi.edit({
     ...props.task,
-    done,
-    desc,
+    done: done.value,
+    desc: desc.value,
   })
-  eventBus('edit-task', editedTask)
+  eventBus.emit('edit-task', editedTask)
 }
 </script>
 <template>
