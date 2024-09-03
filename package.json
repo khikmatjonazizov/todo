@@ -6,7 +6,7 @@
   "scripts": {
     "install:sync": "echo '---- BACKEND' && cd ./backend && pnpm i && cd ../ && echo '---- CREATE-TASK' && cd ./create-task && pnpm i && cd ../ && echo '---- NAVBAR' && cd ./navbar && pnpm i && cd ../ && echo '---- ONE-TASK' && cd ./one-task && pnpm i && cd ../ && echo '---- ROOT' && cd ./root && pnpm i && cd ../ && echo '---- TASKS-LIST' && cd ./tasks-list && pnpm i && cd ../ && echo '---- UTILS' && cd ./utils && pnpm i && cd ../",
     "install:async": "pnpm concurrently \"cd ./backend && pnpm i\" \"cd ./create-task && pnpm i\" \"cd ./navbar && pnpm i\" \"cd ./one-task && pnpm i\" \"cd ./root && pnpm i\" \"cd ./tasks-list && pnpm i\" \"cd ./utils && pnpm i\"",
-    "dev": "pnpm concurrently \"cd ./backend && pnpm dev\" \"cd ./create-task && pnpm start:standalone\" \"cd ./navbar && pnpm start:standalone\" \"cd ./one-task && pnpm start:standalone\" \"cd ./root && pnpm start\" \"cd ./tasks-list && pnpm start:standalone\" \"cd ./utils && pnpm start:standalone\""
+    "dev": "pnpm concurrently \"cd ./backend && pnpm dev\" \"cd ./create-task && pnpm dev\" \"cd ./navbar && pnpm dev\" \"cd ./one-task && pnpm dev\" \"cd ./root && pnpm dev\" \"cd ./tasks-list && pnpm dev\" \"cd ./utils && pnpm dev\""
   },
   "keywords": [],
   "author": "",
