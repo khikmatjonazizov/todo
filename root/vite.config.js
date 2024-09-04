@@ -29,8 +29,5 @@ export default defineConfig({
   },
   plugins: [
     externalize({ externals: externalDependencies })
-  ],
-  server: {
-    hmr: false
-  }
+  ]
 });

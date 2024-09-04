@@ -4,7 +4,6 @@ import {
   constructRoutes,
   constructLayoutEngine,
 } from "single-spa-layout";
-// @ts-expect-error no type
 import microfrontendLayout from "./microfrontend-layout.html?raw";
 import './app/global.css'
 import './app/model';

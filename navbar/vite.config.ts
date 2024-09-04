@@ -18,7 +18,7 @@ export default defineConfig(({ command }) => {
   return {
     build: {
       rollupOptions: {
-        input: "src/todo-navbar.tsx",
+        input: "src/main.tsx",
         output: {
           format: "esm",
         },
@@ -29,8 +29,5 @@ export default defineConfig(({ command }) => {
       react(),
       externalize({ externals: externalDependencies })
     ],
-    server: {
-      hmr: false
-    }
   }
 })

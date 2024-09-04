@@ -22,9 +22,6 @@ export default defineConfig({
       external: externalDependencies,
     },
   },
-  server: {
-    hmr: false,
-  },
   resolve: {
     alias: {
       '@': '/src', // Важно для поддержки пути '@' к папке src

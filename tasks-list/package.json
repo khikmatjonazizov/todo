@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vite --port 9002",
+    "dev": "vite --port 9004",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview --port 9002"
+    "preview": "vite preview --port 9004"
   },
   "dependencies": {
     "core-js": "3.38.1",
